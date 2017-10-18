@@ -846,6 +846,38 @@ easier understanding and reading of a test.
 
 ### Models
 
+We agreed on structuring Model specs according to the following example:
+```ruby
+require 'rails_helper'
+
+describe User, type: :model do
+  describe 'attributes' do
+  end
+
+  describe 'validations' do
+  end
+
+  describe 'associations' do
+  end
+
+  describe 'callbacks' do
+  end
+
+  describe 'scopes' do
+  end
+
+  describe 'methods' do
+    # class methods
+    describe '#connection' do
+    end
+
+    # instance methods
+    describe '.save' do
+    end
+  end
+end
+```
+
 * Do not mock the models in their own specs.
 * Use `FactoryGirl.create` to make real objects, or just use a new (unsaved)
   instance with `subject`.
